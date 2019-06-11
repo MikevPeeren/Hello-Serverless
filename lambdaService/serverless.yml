@@ -1,0 +1,17 @@
+service: lambdaService 
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  region: eu-central-1
+
+functions:
+  hello:
+    handler: handler.hello
+    events: 
+      - http:
+          path: hello/get
+          method: get
+          
+plugins:
+  - serverless-offline
